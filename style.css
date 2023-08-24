@@ -1,0 +1,64 @@
+ * {
+        box-sizing: border-box;
+      }
+
+      body::-webkit-scrollbar{
+        display: none;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #05151a;
+      }
+
+      .poster {
+        position: relative;
+        /* background: white; */
+        width: 200px;
+      }
+
+      .season_1 {
+        width: 300px;
+        height:500px;
+        object-fit:contain;
+        transition: 1s ease-in-out;
+        transform: perspective(400px) translateY(0%) rotateX(4deg) translateZ(0);
+        opacity: 0.99;
+        z-index: 1;
+      }
+
+      .season_1:hover {
+        width: 300px;
+        transform: perspective(400px) translateY(25%) rotateX(45deg)
+          translateZ(10px);
+      }
+
+      .above {
+        width: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        /* transform and animation mpve up */
+        transform: perspective(400px) translateY(2%) rotateX(45deg)
+          translateZ(0);
+        animation-name: imageAnimation;
+        animation-duration: 3s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        transform: scale(2) translateX(100px) scale3d(1.1);
+      }
+
+      @keyframes imageAnimation {
+        0% {
+          transform: perspective(300px) translateY(25%) rotateX(60deg)
+            translateZ(0);
+        }
+        100% {
+          transform: perspective(900px) translateY(0) rotateX(0) translateZ(0);
+        }
+      }
